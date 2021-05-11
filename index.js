@@ -11,7 +11,7 @@ function getRequireWildcardCache() {
     return cache;
 }
 
-function interopRequireWildcard(obj) {
+function useRequireWildcard(obj) {
     if (obj && obj.__esModule) { return obj; }
     if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; }
     var cache = getRequireWildcardCache();
@@ -24,17 +24,15 @@ function interopRequireWildcard(obj) {
     return newObj;
 }
 
-// Plugin configuration importer.
 let projectPackagePromise = null;
 
 const getPluginConfig = projectRoot => {
-    // Import only once.
     if (projectPackagePromise == null) {
-        projectPackagePromise = Promise.resolve(`${(0, path.join)(projectRoot, 'package.json')}`).then(s => interopRequireWildcard(require(s))).then(pkgConfig => Object.entries(pkgConfig[package.name] || {}).map(([srcPattern, destPattern]) => [new RegExp(srcPattern, 'i'), destPattern]));
+        projectPackagePromise = Promise.resolve(`${(0, path.join)(projectRoot, 'package.json')}`).then(s => useRequireWildcard(require(s))).then(pkgConfig => Object.entries(pkgConfig[package.name] || {}).map(([srcPattern, destPattern]) => [new RegExp(srcPattern, 'i'), destPattern]));
     }
 
     return projectPackagePromise;
-}; // Exports.
+};
 
 const createFileLimitTableFromConfig = (limitTable, pluginConfig) => {
   let configFileType, configFileLimit;
