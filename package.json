@@ -1,0 +1,19 @@
+{
+    "name": "parcel-validator-file-size",
+    "version": "1.0.0",
+    "description": "Parcel validator plugin for checking file sizes",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@parcel/diagnostic": "^2.0.0-alpha.3",
+        "@parcel/plugin": "^2.0.0-alpha.3"
+    },
+    "engines": {
+        "parcel": ">=2.0.0-nightly.596"
+    }
+}
