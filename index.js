@@ -80,10 +80,8 @@ const fileSizeValidator = new Validator({
 
       if (fileSize > sizeLimit) {
         logger.warn({
-            name: "Exceeded maximum file size",
-            message: `\n Warning: File has exceeded .${asset.type} ${sizeLimit} ${sizeUnit} size limit \n File name: ${fileName} \n File path: ${filePath} \n File size: ${fileSize.toFixed(2)} ${sizeUnit} \n`,
-            filePath: filePath,
-            language: asset.type,
+          message: `\n Warning: File has exceeded .${asset.type} ${sizeLimit} ${sizeUnit} size limit \n File name: ${fileName} \n File path: ${filePath} \n File size: ${fileSize.toFixed(2)} ${sizeUnit} \n`,
+          language: asset.type,
         });
       }
     }
